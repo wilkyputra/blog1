@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// // Route::get('/about', function () {
+// // 	$nama = 'Kintil asu';
+// // 	return view('index', ['nama' => $nama]);
+// // });
+
+Route::get('/', "DashboardController@view");
