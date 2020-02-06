@@ -129,11 +129,11 @@ table#t01 th {
                                 <td>{{ $p->Alamat }}</td>
                                 <td>{{ $p->Jenis_Kelamin }}</td>
                                 <td>{{ $p->Jurusan }}</td>
-<!--                                 <td>
+                                <td>
                                     <a href="/edit/{{ $p->ID }}">Edit</a>
                                     <a href="/hapus/{{ $p->ID }}">Hapus</a>
-                                    <a href="/detail/{{ $p->ID }}">Detail</a>
-                                </td> -->
+                                    <!-- <a href="/detail/{{ $p->ID }}">Detail</a> -->
+                                </td>
                             </tr>
                             @endforeach
   
@@ -153,6 +153,10 @@ table#t01 th {
     <td>80</td>
   </tr> -->
 </table>
+<br><button>
+<a href="/inputdata" style="background-color: black;
+color: white;" 
+> INPUT DATA </button>
 
 
 

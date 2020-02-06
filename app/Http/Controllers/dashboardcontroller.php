@@ -88,4 +88,11 @@ class DashboardController extends Controller
 	// 	// passing data pegawai yang didapat ke view edit.blade.php
 	// 	return view('detail',['data_game' => $user]);
 	// }
+
+	public function inputdata()
+	{
+		
+		// alihkan halaman ke halaman pegawai
+		return view('inputdata');
+	}
 }

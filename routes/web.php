@@ -21,3 +21,5 @@
 // // });
 
 Route::get('/', "DashboardController@view");
+
+Route::get('/inputdata','dashboardController@inputdata');
