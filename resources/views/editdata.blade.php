@@ -1,23 +1,25 @@
 @extends('templateinputdata')
 
 @section('content')
-<form id="file-upload-form" accept-charset="utf-8" enctype="multipart/form-data" method="post" action="/store">
+<form id="file-upload-form" accept-charset="utf-8" enctype="multipart/form-data" method="post" action="/edit/{{ $user->id }}">
 	 {{ csrf_field() }}
+
+        {{ method_field('POST') }}
 <div class="form-group">
 <label for="exampleInputPassword1">Nama</label>
-<input type="text" class="form-control" id="Nama" name="Nama" placeholder="Nama">
+<input type="text" class="form-control" id="Nama" name="Nama" placeholder="{{ $user->Nama }}">
 </div>
 <div class="form-group">
 <label>Alamat</label>
-<input type="text" class="form-control" id="Alamat" name="Alamat" placeholder="Alamat">
+<input type="text" class="form-control" id="Alamat" name="Alamat" placeholder="{{ $user->Alamat }}">
 </div>
 <div class="form-group">
 <label>Jenis Kelamin</label>
-<input type="text" class="form-control" id="Jenis_Kelamin" name="Jenis_Kelamin" placeholder="Jenis Kelamin">
+<input type="text" class="form-control" id="Jenis_Kelamin" name="Jenis_Kelamin" placeholder="{{ $user->Jenis_Kelamin }}">
 </div>
 <div class="form-group">
 <label>Jurusan</label>
-<input type="text" class="form-control" id="Jurusan" name="Jurusan" placeholder="Jurusan">
+<input type="text" class="form-control" id="Jurusan" name="Jurusan" placeholder="{{ $user->Jurusan }}">
 </div>
 <div class="input-group mb-3">
   <div class="input-group-prepend">

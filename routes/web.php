@@ -20,6 +20,14 @@
 // // 	return view('index', ['nama' => $nama]);
 // // });
 
-Route::get('/', "DashboardController@view");
+Route::get('/', "dashboardController@view");
 
-Route::get('/inputdata','dashboardController@inputdata');
+Route::get('/editdata/{id}','dashboardController@editdata');
+
+Route::get('/inputdata', 'dashboardController@inputdata');
+
+Route::get('/delete/{id}', 'dashboardController@delete'); 
+
+Route::post('/edit/{id}', 'dashboardController@update');
+
+Route::post('/store', 'dashboardController@store');

@@ -120,18 +120,22 @@ table#t01 th {
     <th>Nama</th> 
     <th>Alamat</th> 
     <th>Jenis_Kelamin</th>
-    <th>Jurusan</th> 
+    <th>Jurusan</th>
+    <th>Image</th>
+    <th>Action</th>
   </tr>
-  @foreach($user ?? '' as $p)
+  @foreach($user as $p)
                             <tr>
-                                <td>{{ $p->ID }}</td>
+                                <td>{{ $p->id }}</td>
                                 <td>{{ $p->Nama }}</td>
                                 <td>{{ $p->Alamat }}</td>
                                 <td>{{ $p->Jenis_Kelamin }}</td>
                                 <td>{{ $p->Jurusan }}</td>
+                                <td><img src="{{ url('image/'.$p->image) }}" width="150px"></td>
+                                
                                 <td>
-                                    <a href="/edit/{{ $p->ID }}">Edit</a>
-                                    <a href="/hapus/{{ $p->ID }}">Hapus</a>
+                                    <a href="/editdata/{{ $p->id }}">Edit</a>
+                                    <a href="/delete/{{ $p->id }}">Hapus</a>
                                     <!-- <a href="/detail/{{ $p->ID }}">Detail</a> -->
                                 </td>
                             </tr>
@@ -153,7 +157,7 @@ table#t01 th {
     <td>80</td>
   </tr> -->
 </table>
-<br><button>
+<br><button> 
 <a href="/inputdata" style="background-color: black;
 color: white;" 
 > INPUT DATA </button>
