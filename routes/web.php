@@ -22,6 +22,10 @@
 
 Route::get('/', "dashboardController@view");
 
+Route::get('/','dashboardController@search');
+
+Route::get('/user','dashboardController@index');
+
 Route::get('/editdata/{id}','dashboardController@editdata');
 
 Route::get('/inputdata', 'dashboardController@inputdata');
@@ -31,3 +35,7 @@ Route::get('/delete/{id}', 'dashboardController@delete');
 Route::post('/edit/{id}', 'dashboardController@update');
 
 Route::post('/store', 'dashboardController@store');
+
+Route::get('/search', 'dashboardController@search');
+
+

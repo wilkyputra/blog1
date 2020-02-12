@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
@@ -17,13 +18,9 @@
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
-                height: 100vh;
                 margin: 0;
             }
 
-            .full-height {
-                height: 100vh;
-            }
 
             .flex-center {
                 align-items: center;
@@ -99,6 +96,7 @@ table#t01 th {
                 </div>
             @endif
 
+            
             <div class="content">
                 <div class="title m-b-md">
                     DATABASE MAHASISWA
@@ -113,8 +111,13 @@ table#t01 th {
 
                     
                 </div> -->
-                <table  style="background-color: black; 
-                color: white;">
+                
+                <form method="get" action="{{url('search')}}" class="form-inline my-2 my-lg-0">
+<input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+                <table  style="background-color: white; 
+                color: black;">
   <tr>
     <th>ID</th> 
     <th>Nama</th> 
@@ -157,6 +160,16 @@ table#t01 th {
     <td>80</td>
   </tr> -->
 </table>
+
+<div style="color: black;">
+Halaman : {{ $user->currentPage() }} <br/>
+Jumlah Data : {{ $user->total() }} <br/>
+Data Per Halaman : {{ $user->perPage() }} <br/>
+
+{{ $user->links() }}
+</div>
+
+
 <br><button> 
 <a href="/inputdata" style="background-color: black;
 color: white;" 
@@ -165,6 +178,8 @@ color: white;"
 
 
             </div>
+
         </div>
+        
     </body>
 </html>

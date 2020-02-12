@@ -9,6 +9,21 @@ use App\Siswa;
 
 class DashboardController extends Controller
 {
+	public function index(){
+    	$table = 'user';
+    	$showmember = Siswa::all();
+        $showmember = Siswa::paginate(5);
+        // $showmember = Users::where('id', Auth:: id())->paginate(5);
+    	return view('/welcome')->with('user', $showmember);
+
+    	// return view ('members', compact('table', 'fillable'));
+
+        // $members = DB::table('users')->get();
+        // // dump($members);
+        // return view('members', ['users' => $members]);
+    }
+
+
     public function view () {
 		// return view('dashboard');//mengembalikan view
 		// $user = User ::where("email", "foorbal2gmai.com")->first(); menampilkan data /mencari
@@ -181,4 +196,17 @@ class DashboardController extends Controller
 		$user = Siswa::find($id);
        return view('editdata', ['user' => $user]);
 	}
+
+	public function search(Request $request){
+      $search = Siswa::when($request->search, function ($query) use ($request) {
+                $query->where('id', 'LIKE', "%{$request->search}%")
+                      ->orWhere('Nama', 'LIKE', "%{$request->search}%")
+                      ->orWhere('Alamat', 'LIKE', "%{$request->search}%")
+                      ->orWhere('Jenis_Kelamin', 'LIKE', "%{$request->search}%")
+                      ->orWhere('Jurusan', 'LIKE', "%{$request->search}%");
+                })->paginate(5);
+      return view('/welcome')->with('user', ($search));
+   }
+   
+
 }
