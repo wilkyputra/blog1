@@ -11,14 +11,14 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        // insert data ke table pegawai
-        DB::table('user')->insert([
-        	'Nama' => 'hororo',
-        	'Alamat' => 'malang',
-        	'Jenis_Kelamin' => 'cowo',
-        	'Jurusan' => 'ti',
-        	'Image' => 'a.jpg'
-        ]);
-        
+        // // insert data ke table pegawai
+        // DB::table('user')->insert([
+        // 	'Nama' => 'hororo',
+        // 	'Alamat' => 'malang',
+        // 	'Jenis_Kelamin' => 'cowo',
+        // 	'Jurusan' => 'ti',
+        // 	'Image' => 'a.jpg'
+        // ]);
+        factory(\App\Siswa::class,6) ->create();
     }
 }

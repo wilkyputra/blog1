@@ -20,6 +20,18 @@
 // // 	return view('index', ['nama' => $nama]);
 // // });
 
+Route::get ('/', function (){
+	return view('welcome');
+});
+
+
+
+Route::get('/login','AuthController@login');
+Route::post('/postlogin','AuthController@postlogin');
+Route::get('/logout','AuthController@logout');
+
+Route::group(['middleware' => 'auth'], function(){
+
 Route::get('/', "dashboardController@view");
 
 Route::get('/','dashboardController@search');
@@ -38,4 +50,4 @@ Route::post('/store', 'dashboardController@store');
 
 Route::get('/search', 'dashboardController@search');
 
-
+ });

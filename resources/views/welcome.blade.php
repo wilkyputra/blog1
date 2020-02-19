@@ -83,8 +83,8 @@ table#t01 th {
 }
         </style>
     </head>
-    <body>
-        <div class="flex-center position-ref full-height">
+    <body>       
+ <!--     <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -93,10 +93,10 @@ table#t01 th {
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
                     @endauth
-                </div>
-            @endif
+                </div> -->
 
-            
+          <!--   @endif -->
+
             <div class="content">
                 <div class="title m-b-md">
                     DATABASE MAHASISWA
@@ -170,10 +170,13 @@ Data Per Halaman : {{ $user->perPage() }} <br/>
 </div>
 
 
-<br><button> 
+<br> 
 <a href="/inputdata" style="background-color: black;
 color: white;" 
-> INPUT DATA </button>
+> <button>INPUT DATA </button></a>
+<br>
+<br>
+<a href="/logout"><button>LOG OUT</button></a>
 
 
 
