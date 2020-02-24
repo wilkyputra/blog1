@@ -15,9 +15,15 @@ class DashboardController extends Controller
     	return view('dashboard.index');
     }
 
-    public function view () {
+    public function view (Request $request) {
 		
-    	$user = Siswa::all();
+    	 $user = Siswa::when($request->search, function ($query) use ($request) {
+                $query->where('id', 'LIKE', "%{$request->search}%")
+                      ->orWhere('Nama', 'LIKE', "%{$request->search}%")
+                      ->orWhere('Alamat', 'LIKE', "%{$request->search}%")
+                      ->orWhere('Jenis_Kelamin', 'LIKE', "%{$request->search}%")
+                      ->orWhere('Jurusan', 'LIKE', "%{$request->search}%");
+                })->paginate(5);
  
     	// mengirim data pegawai ke view index
     	return view('welcome',['user' => $user]);
@@ -136,14 +142,5 @@ class DashboardController extends Controller
        return view('editdata', ['user' => $user]);
 	}
 
-	public function search(Request $request){
-      $search = Siswa::when($request->search, function ($query) use ($request) {
-                $query->where('id', 'LIKE', "%{$request->search}%")
-                      ->orWhere('Nama', 'LIKE', "%{$request->search}%")
-                      ->orWhere('Alamat', 'LIKE', "%{$request->search}%")
-                      ->orWhere('Jenis_Kelamin', 'LIKE', "%{$request->search}%")
-                      ->orWhere('Jurusan', 'LIKE', "%{$request->search}%");
-                })->paginate(5);
-      return view('/welcome')->with('user', ($search));
-   }
+
 }

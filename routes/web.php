@@ -26,28 +26,26 @@ Route::get ('/', function (){
 
 
 
-Route::get('/login','AuthController@login');
+Route::get('/login','AuthController@login')->name('login');
 Route::post('/postlogin','AuthController@postlogin');
 Route::get('/logout','AuthController@logout');
 
 Route::group(['middleware' => 'auth'], function(){
 
-Route::get('/', "dashboardController@view");
+	Route::get('/', "dashboardController@view");
 
-Route::get('/','dashboardController@search');
+	Route::get('/user','dashboardController@index');
 
-Route::get('/user','dashboardController@index');
+	Route::get('/editdata/{id}','dashboardController@editdata');
 
-Route::get('/editdata/{id}','dashboardController@editdata');
+	Route::get('/inputdata', 'dashboardController@inputdata');
 
-Route::get('/inputdata', 'dashboardController@inputdata');
+	Route::get('/delete/{id}', 'dashboardController@delete'); 
 
-Route::get('/delete/{id}', 'dashboardController@delete'); 
+	Route::post('/edit/{id}', 'dashboardController@update');
 
-Route::post('/edit/{id}', 'dashboardController@update');
+	Route::post('/store', 'dashboardController@store');
 
-Route::post('/store', 'dashboardController@store');
-
-Route::get('/search', 'dashboardController@search');
+	Route::get('/search', 'dashboardController@search');
 
  });
