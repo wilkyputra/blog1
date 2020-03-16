@@ -1,45 +1,21 @@
-<html lang="en"><head>
+<!doctype html>
+<html lang="en">
+
+<head>
   <title>Hello, world!</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- Material Kit CSS -->
-  <link href="assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet">
+  <link href="assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
 </head>
 
 <body>
-  <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="white">
-      <!--
-      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-      Tip 2: you can also add an image using data-image tag
-  -->
-      <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-          CT
-        </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
-        </a>
-      </div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="nav-item active  ">
-            <a class="nav-link" href="#0">
-              <i class="material-icons">dashboard</i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <!-- your sidebar here -->
-        </ul>
-      </div>
-    </div>
-    <div class="main-panel">
+      <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
@@ -55,44 +31,49 @@
           <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="javascript:;">
-                  <i class="material-icons">notifications</i> Notifications
+                <a class="nav-link" href="/logout">
+                  <i class="material-icons">notifications</i> Logout
                 </a>
+               <a href="/siswa/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
               </li>
               <!-- your navbar here -->
             </ul>
           </div>
         </div>
       </nav>
-      <!-- End Navbar -->
-      <div class="content">
-        <div class="container-fluid">
-          <!-- your content here -->
-        </div>
+  <div class="wrapper ">
+    <br><br><br><br>
+    <div>
+      @yield('content')
+    </div>
+    <div class="sidebar" data-color="purple" data-background-color="white">
+      <div class="logo">
+        <a class="simple-text logo-mini">
+          UNIVERSITAS
+        </a>
+        <a  class="simple-text logo-normal">
+          WANI TOK!
+        </a>
       </div>
-      <footer class="footer">
-        <div class="container-fluid">
-          <nav class="float-left">
-            <ul>
-              <li>
-                <a href="https://www.creative-tim.com">
-                  Creative Tim
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div class="copyright float-right">
-            ©
-            <script>
-              document.write(new Date().getFullYear())
-            </script>2020, made with <i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
-          </div>
-          <!-- your footer here -->
-        </div>
-      </footer>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item active  ">
+            <a class="nav-link" href="/">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item active  ">
+            <a class="nav-link" href="/welcomesiswa">
+              <i class="material-icons">dashboard</i>
+              <p>Tabel Dosbing</p>
+            </a>
+          </li>
+          <!-- your sidebar here -->
+        </ul>
+      </div>
     </div>
   </div>
+</body>
 
-
-</body></html>
+</html>      

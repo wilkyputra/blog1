@@ -24,7 +24,9 @@ Route::get ('/', function (){
 	return view('welcome');
 });
 
-
+Route::get ('/user', function (){
+	return view('user');
+});
 
 Route::get('/login','AuthController@login')->name('login');
 Route::post('/postlogin','AuthController@postlogin');
@@ -33,6 +35,14 @@ Route::get('/logout','AuthController@logout');
 Route::group(['middleware' => 'auth'], function(){
 
 	Route::get('/', "dashboardController@view");
+
+	Route::get('/welcomesiswa', "DosenController@view");
+
+	Route::get('/inputDosbing', 'DosenController@inputdata');
+
+	Route::post('/storeDosbing', 'DosenController@store');
+
+	Route::get('/deleteDosbing/{id}', 'DosenController@delete');
 
 	Route::get('/user','dashboardController@index');
 
@@ -46,6 +56,7 @@ Route::group(['middleware' => 'auth'], function(){
 
 	Route::post('/store', 'dashboardController@store');
 
-	Route::get('/search', 'dashboardController@search');
+
+Route::get('/siswa/export_excel', 'SiswaController@export_excel');
 
  });

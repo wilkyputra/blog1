@@ -13,11 +13,11 @@ class CreateUser2Table extends Migration
      */
     public function up()
     {
-        Schema::create('user2', function (Blueprint $table) {
+        Schema::create('mahasiswa', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('Nama');
             $table->string('Alamat');
-            $table->string('Jenis_Kelamat');
+            $table->string('Jenis_Kelamin');
             $table->string('Jurusan');
             $table->string('image');
             $table->timestamps();
@@ -31,6 +31,6 @@ class CreateUser2Table extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user2');
+        Schema::dropIfExists('mahasiswa');
     }
 }

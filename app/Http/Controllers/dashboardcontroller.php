@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use App\Siswa;
+use App\Dosbing;
 
 class DashboardController extends Controller
 {
@@ -17,16 +18,17 @@ class DashboardController extends Controller
 
     public function view (Request $request) {
 		
-    	 $user = Siswa::when($request->search, function ($query) use ($request) {
+    	 $siswa = Siswa::when($request->search, function ($query) use ($request) {
                 $query->where('id', 'LIKE', "%{$request->search}%")
                       ->orWhere('Nama', 'LIKE', "%{$request->search}%")
                       ->orWhere('Alamat', 'LIKE', "%{$request->search}%")
                       ->orWhere('Jenis_Kelamin', 'LIKE', "%{$request->search}%")
                       ->orWhere('Jurusan', 'LIKE', "%{$request->search}%");
                 })->paginate(5);
+       $dosbing = Dosbing::all();
  
     	// mengirim data pegawai ke view index
-    	return view('welcome',['user' => $user]);
+    	return view('welcome',['siswa' => $siswa], compact('dosbing', 'siswa'));
 		// return response()->json($user);
     }
  //    // method untuk menampilkan view form tambah pegawai
@@ -111,7 +113,7 @@ class DashboardController extends Controller
     
      }
         $user->save();
-        return redirect('/');
+        return redirect('welcomesiswa');
     }
  
 	

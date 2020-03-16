@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Exports\MahasiswaExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SiswaController extends Controller
 {
@@ -33,5 +35,10 @@ class SiswaController extends Controller
     	$siswa=\App\Siswa::find($id);
     	$siswa->delete($siswa);
     	return redirect('siswa')->with('sukses','Data Berhasil Dihapus');
+    }
+
+    public function export_excel()
+    {
+        return Excel::download(new MahasiswaExport, 'mahasiswa.xlsx');
     }
 }
